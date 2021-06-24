@@ -31,9 +31,16 @@ Code:-
      request.send();
      request.onload = function(){
      var data = JSON.parse(this.response);
-     var rest= data.filter(function curren(element){
-     return element.currencies[name]==="United States dollar";})
-     console.log(rest);
+        let curr= data.filter((ele)=>{
+       for(var i in ele.currencies){
+           if(ele.currencies[i].code ==='USD'){
+               return true;
+           }
+       } 
+    }).map(ele => console.log(ele.name));
     }
+     
+     
+    
 
 
